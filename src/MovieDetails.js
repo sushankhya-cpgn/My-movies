@@ -4,6 +4,7 @@ import movieTrailer from "movie-trailer";
 import { Loader } from "./Loader";
 import { Error } from "./Error";
 import { KEY } from "./App";
+import useKey from "./usekey";
 
 export function MovieDetails({
   selectedID,
@@ -73,18 +74,10 @@ export function MovieDetails({
     setSelectedId(null);
     setMovie([]);
   }
-  console.log(userRating);
-  useEffect(() => {
-    function callback(e) {
-      if (e.code === "Escape") {
-        handleClose();
-      }
-    }
-    document.addEventListener("keydown", callback);
-    return function () {
-      document.removeEventListener("keydown", callback);
-    };
-  }, [setMovie, setSelectedId]);
+
+  const key = "Escape";
+
+  useKey(key, handleClose);
 
   return (
     <>

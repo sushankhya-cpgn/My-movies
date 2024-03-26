@@ -16,6 +16,7 @@ import { WatchedMovie } from "./WatchedMovie";
 import { WatchList } from "./WatchList";
 import { Results } from "./Results";
 import { Search } from "./Search";
+
 export const KEY = "66c729a6";
 
 export const average = (arr) =>
@@ -26,10 +27,9 @@ export default function App() {
   const [userRating, setUserRating] = useState(0);
   const [query, setQuery] = useState("");
   const [watched, setWatched] = useLocationStorageState([], "watched");
-  const [video, setVideo] = useState("inception");
+
   const [modal, setModal] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
-  // const [videoURL, setVideoURL] = useState("https://youtu.be/sa9l-dTv9Gk");
 
   function handleModal() {
     setModal(!modal);
